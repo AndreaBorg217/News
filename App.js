@@ -9,11 +9,16 @@
 
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {sampledata} from './sampledata'
+import Header from './components/header'
+import Footer from './components/footer'
 
 
 const App = () => {
   return (
     <View style={styles.container}>
+      <Header date={sampledata.last_updated}/>
+      <Footer copyright={sampledata.copyright}/>
     </View>
   );
 };
