@@ -7,19 +7,34 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {sampledata} from './topstories_sample'
 import Header from './components/header'
 import Footer from './components/footer'
 import Headlines from './components/headlines'
+import axios from 'axios'
+import {key} from './sensitive.js'
 
-const App = () => {
+ 
+ const App = () => {
+  const [data, setData] = useState()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get("https://api.nytimes.com/svc/topstories/v2/home.json?api-key=" + key)
+        if(response.data){
+         setData(response.data)
+        }
+    }
+    fetchData()
+  }, [])
+
   return (
     <View style={styles.container}>
-      <Header date={sampledata.last_updated}/>
-      <Headlines headlines={sampledata.results}/>
-      <Footer copyright={sampledata.copyright}/>
+      <Header date={data?.last_updated}/>
+      <Headlines headlines={data?.results}/>
+      <Footer copyright={data?.copyright}/>
     </View>
   );
 };

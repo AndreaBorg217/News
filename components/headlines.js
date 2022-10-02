@@ -7,12 +7,25 @@
  * @flow strict-local
  */
 
- import React, {useState} from 'react';
+ import React, {useState, useEffect} from 'react';
  import {StyleSheet, View, Image, Text, FlatList, TouchableOpacity, ScrollView} from 'react-native';
  import {sampledata} from '../article_sample.js'
+ import axios from 'axios'
+ import {key} from '../sensitive.js'
  
  const Headlines = ({headlines}) => {
   const [article, setArticle] = useState()
+  const [data, setData] = useState()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get('https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=web_url:("' + article + '")&api-key=' + key)
+        if(response.data){
+         setData(response.data)
+        }
+    }
+   if(article) fetchData()
+  }, [article])
 
   const Story = ({image, title, abstract, url}) =>{
     return(
@@ -30,23 +43,22 @@
 }
 
 const Article = () =>{
-  //axios fetch with url in article
   return(
     <View style={styles.article}>
       <TouchableOpacity style={styles.imageContainer} onPress={()=>setArticle('')}>
         <Image style={styles.badge} source={require('../assets/badge.png')}/>
       </TouchableOpacity>
-      <Text style={styles.articleTitle}>{sampledata.response.docs[0].headline.main}</Text>
-      <Text style={styles.byline}>{sampledata.response.docs[0].pub_date.slice(0,10)} | {sampledata.response.docs[0].byline.original}</Text>
+      <Text style={styles.articleTitle}>{data?.response.docs[0].headline.main}</Text>
+      <Text style={styles.byline}>{data?.response.docs[0].pub_date.slice(0,10)} | {data?.response.docs[0].byline.original}</Text>
       
-      <Image style={styles.articleImage} source={{uri: 'https://static01.nyt.com/' + sampledata.response.docs[0].multimedia[0].url}}/>      
+      <Image style={styles.articleImage} source={{uri: 'https://static01.nyt.com/' + data?.response.docs[0].multimedia[0].url}}/>      
       
-      <Text style={styles.paragraphA}>{sampledata.response.docs[0].abstract}</Text>
-      <Text style={styles.paragraphB}>{sampledata.response.docs[0].lead_paragraph}</Text>
+      <Text style={styles.paragraphA}>{data?.response.docs[0].abstract}</Text>
+      <Text style={styles.paragraphB}>{data?.response.docs[0].lead_paragraph}</Text>
       
       <View style={styles.full}>
         <Text style={styles.read}>Read the full article: </Text>
-        <Text style={styles.url}>{sampledata.response.docs[0].web_url}</Text>
+        <Text style={styles.url}>{data?.response.docs[0].web_url}</Text>
       </View>
     </View>
   )
@@ -57,7 +69,7 @@ const Article = () =>{
       {!article?(
         <FlatList
         data={headlines}
-        renderItem={({item}) => <Story image={item.multimedia[2].url} title={item.title} abstract={item.abstract} url={item.url}/>}
+        renderItem={({item}) => <Story image={item?.multimedia[2].url} title={item?.title} abstract={item?.abstract} url={item?.url}/>}
         keyExtractor={(item, index) => index}
         />
       ):

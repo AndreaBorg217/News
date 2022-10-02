@@ -15,7 +15,7 @@
    return (
      <View style={styles.container}>
      <Image style={styles.logo} source={require('../assets/logo.png')}/>
-     <Text style={styles.date}>{date.slice(0,10)}</Text>
+     <Text style={styles.date}>{date?.slice(0,10)}</Text>
      </View>
    );
  };
