@@ -26,7 +26,7 @@
      height: '100%',
      alignItems: 'center',
      justifyContent: 'center',
-     backgroundColor: '#00626D',
+     backgroundColor: '#000000',
      position: 'absolute',
      transform: [{translateY: -300}]
    },

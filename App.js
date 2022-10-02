@@ -9,7 +9,7 @@
 
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {sampledata} from './sampledata'
+import {sampledata} from './topstories_sample'
 import Header from './components/header'
 import Footer from './components/footer'
 import Headlines from './components/headlines'
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#00626D'
+    backgroundColor: '#000000'
   }
   });
 
