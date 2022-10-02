@@ -26,9 +26,9 @@
      height: '100%',
      alignItems: 'center',
      justifyContent: 'center',
-     backgroundColor: '#000000',
+     backgroundColor: '#00626D',
      position: 'absolute',
-     transform: [{translateY: -280}]
+     transform: [{translateY: -300}]
    },
    logo:{
     width: 350,

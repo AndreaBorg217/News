@@ -25,9 +25,9 @@
      height: '100%',
      alignItems: 'center',
      justifyContent: 'center',
-     backgroundColor: '#000000',
+     backgroundColor: '#00626D',
      position: 'absolute',
-     transform: [{translateY: 300}]
+     transform: [{translateY: 330}]
    },
    date:{
     color: '#FFFFFF',
