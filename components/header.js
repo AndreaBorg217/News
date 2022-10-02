@@ -26,16 +26,16 @@
      height: '100%',
      alignItems: 'center',
      justifyContent: 'center',
-     backgroundColor: '#000000',
+     backgroundColor: '#FFFFFF',
      position: 'absolute',
-     transform: [{translateY: -300}]
+     transform: [{translateY: -300}],
    },
    logo:{
     width: 350,
     height: 50
    },
    date:{
-    color: '#FFFFFF',
+    color: '#000000',
     fontSize: 20,
     fontStyle: 'italic'
    }

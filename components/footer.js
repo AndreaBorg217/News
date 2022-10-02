@@ -14,7 +14,7 @@
  const Footer = ({copyright}) => {
    return (
      <View style={styles.container}>
-     <Text style={styles.date}>{copyright}</Text>
+     <Text style={styles.copyright}>{copyright}</Text>
      </View>
    );
  };
@@ -25,12 +25,12 @@
      height: '100%',
      alignItems: 'center',
      justifyContent: 'center',
-     backgroundColor: '#000000',
+     backgroundColor: '#FFFFFF',
      position: 'absolute',
      transform: [{translateY: 330}]
    },
-   date:{
-    color: '#FFFFFF',
+   copyright:{
+    color: '#000000',
     fontSize: 12,
     fontStyle: 'italic',
    }
