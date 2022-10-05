@@ -45,17 +45,31 @@
 const Article = () =>{
   return(
     <View style={styles.article}>
+
+    <View style={styles.badgeContainer}>
       <TouchableOpacity style={styles.imageContainer} onPress={()=>setArticle('')}>
         <Image style={styles.badge} source={require('../assets/badge.png')}/>
       </TouchableOpacity>
+    </View>
+
+    <View style={styles.titleContainer}>
       <Text style={styles.articleTitle}>{data?.response.docs[0].headline.main}</Text>
+    </View>
+
+    <View style={styles.bylineContainer}>
       <Text style={styles.byline}>{data?.response.docs[0].pub_date.slice(0,10)} | {data?.response.docs[0].byline.original}</Text>
-      
+    </View>  
+
+    <View style={styles.articleImageContainer}>
       <Image style={styles.articleImage} source={{uri: 'https://static01.nyt.com/' + data?.response.docs[0].multimedia[0].url}}/>      
-      
-      <Text style={styles.paragraphA}>{data?.response.docs[0].abstract}</Text>
-      <Text style={styles.paragraphB}>{data?.response.docs[0].lead_paragraph}</Text>
-      
+    </View>  
+
+    <View style={styles.parAContainer}>
+      <Text style={styles.parText}>{data?.response.docs[0].abstract}</Text> 
+    </View>  
+    <View style={styles.parBContainer}>
+      <Text style={styles.parText}>{data?.response.docs[0].lead_paragraph}</Text>
+    </View>  
       <View style={styles.full}>
         <Text style={styles.read}>Read the full article: </Text>
         <Text style={styles.url}>{data?.response.docs[0].web_url}</Text>
@@ -132,48 +146,95 @@ const Article = () =>{
     alignItems: 'center',
     justifyContent: 'center', 
    },
+   badgeContainer:{
+    width: 80,
+    height: 100,
+    paddingLeft: 10,
+    backgroundColor: '#FFFFFF',
+    alignItems: 'center',
+    justifyContent: 'center', 
+    position: 'absolute',
+    transform: [{translateX: -160}, {translateY: -330}],
+   },
    badge:{
     width: 128,
     height: 128,
+   },
+   titleContainer:{
+    width: 320,
+    height: 100,
+    paddingLeft: 15,
+    paddingRight: 15,
     position: 'absolute',
-    transform: [{translateX: -150}, {translateY: -180}],
+    alignItems: 'center',
+    justifyContent: 'center',
+    transform: [{translateX: 40}, {translateY: -330}],
+    backgroundColor: '#FFFFFF',
    },
    articleTitle:{
     color: '#000000',
     fontWeight: 'bold',
     fontSize: 22,
-    paddingRight: 50,
+   },
+   bylineContainer:{
+    width: 400,
+    height: 40,
+    //backgroundColor: 'yellow',
+    transform: [{translateX: 0}, {translateY: -260}],
+    paddingLeft: 15,
     position: 'absolute',
-    transform: [{translateX: 55}, {translateY: -340}],
-    paddingLeft: 10,
    },
    byline:{
     fontSize: 15,
-    transform: [{translateY: -280}],
-    paddingRight: 20,
-    paddingLeft: 10,
+   },
+   articleImageContainer:{
+    width: 600,
+    height: 200,
+    alignItems: 'center',
+    justifyContent: 'center',
     position: 'absolute',
+    transform: [{translateY: -140}],
+    //backgroundColor: 'green'
    },
    articleImage:{
     width: 370,
     height: 200,
+   },
+   parAContainer:{
+    width: 400,
+    height: 120,
+    alignItems: 'center',
+    justifyContent: 'center',
     position: 'absolute',
-    transform: [{translateY: -140}],
+    paddingLeft: 15,
+    //backgroundColor: 'pink',
+    transform: [{translateY: 20}],
+    paddingRight: 15,
    },
-   paragraphA:{
+   parText:{
     fontSize: 18,
-    transform: [{translateX: 5}, {translateY: 60}],
-    paddingRight: 20,
     color: '#000000',
+    textAlign: 'left'
    },
-   paragraphB:{
-    fontSize: 18,
-    transform: [{translateX: 10}, {translateY: 80}],
-    paddingRight: 20,
-    color: '#000000'
+   parBContainer:{
+    width: 400,
+    height: 200,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    paddingLeft: 15,
+    transform: [{translateY: 180}],
+    paddingRight: 15,
+    //backgroundColor: 'purple',
    },
    full:{
-    transform: [{translateX: -20}, {translateY: 100}],
+    width: 400,
+    height: 60,
+    backgroundColor: '#FFFFFF',
+    position: 'absolute',
+    justifyContent: 'center',
+    paddingLeft: 20,
+    transform: [{translateY: 310}],
    },
    read:{
     color: '#000000',
