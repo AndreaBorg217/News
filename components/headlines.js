@@ -162,9 +162,7 @@ const Article = () =>{
    },
    titleContainer:{
     width: 320,
-    height: 100,
-    paddingLeft: 15,
-    paddingRight: 15,
+    height: 110,
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
@@ -174,7 +172,7 @@ const Article = () =>{
    articleTitle:{
     color: '#000000',
     fontWeight: 'bold',
-    fontSize: 22,
+    fontSize: 20,
    },
    bylineContainer:{
     width: 400,
@@ -203,7 +201,7 @@ const Article = () =>{
    parAContainer:{
     width: 400,
     height: 120,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
     position: 'absolute',
     paddingLeft: 15,
@@ -219,7 +217,7 @@ const Article = () =>{
    parBContainer:{
     width: 400,
     height: 200,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
     position: 'absolute',
     paddingLeft: 15,
@@ -233,8 +231,9 @@ const Article = () =>{
     backgroundColor: '#FFFFFF',
     position: 'absolute',
     justifyContent: 'center',
-    paddingLeft: 20,
-    transform: [{translateY: 310}],
+    alignItems: 'flex-start',
+    paddingLeft: 15,
+    transform: [{translateY: 300}],
    },
    read:{
     color: '#000000',
