@@ -9,10 +9,10 @@
 
  import React, {useState, useEffect} from 'react';
  import {StyleSheet, View, Image, Text, FlatList, TouchableOpacity, ScrollView} from 'react-native';
- import {sampledata} from '../article_sample.js'
  import axios from 'axios'
  import {key} from '../sensitive.js'
- 
+//import {sampledata} from '../article_sample.js'
+
  const Headlines = ({headlines}) => {
   const [article, setArticle] = useState()
   const [data, setData] = useState()

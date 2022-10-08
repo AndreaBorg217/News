@@ -9,12 +9,12 @@
 
 import React, {useState,useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {sampledata} from './topstories_sample'
 import Header from './components/header'
 import Footer from './components/footer'
 import Headlines from './components/headlines'
 import axios from 'axios'
 import {key} from './sensitive.js'
+//import {sampledata} from './topstories_sample'
 
  
  const App = () => {
